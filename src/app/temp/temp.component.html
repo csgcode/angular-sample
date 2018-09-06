@@ -1,0 +1,14 @@
+<p>
+  temp works!
+</p>
+<div *ngFor="let item of records">
+  {{item.id}}
+  <br>
+  {{item.name}}
+  <br>
+  {{item.title}}
+  <nav><a routerLink="/movie/{{item.id}}">link</a></nav>
+  <a href="/movie/{{item.id}}">this is a link</a>
+  <img src="{{item.image}}" alt="failed">
+  <hr>
+</div>
