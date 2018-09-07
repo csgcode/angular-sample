@@ -23,6 +23,10 @@ export class TempComponent implements OnInit {
   { id: 20, name: 'Tornado' }
 ];
   
+  name = 'Goukl';
+  email = 'Goukl';
+  web = 'Goukl';
+  msg = 'Goukl';
 
   constructor(private trydata: ProserviceService) { 
 
@@ -31,8 +35,19 @@ export class TempComponent implements OnInit {
   ngOnInit() {
     this.trydata.getData().subscribe(data => {
       console.log('sucess', data);
-      this.records = data;
+      
     });
+  }
+
+  testfun() {
+    console.log('function called');  
+    console.log(this.name);
+    console.log(this.web); 
+    console.log(this.email);  
+    console.log(this.msg); 
+
+    
+     
   }
 
 }

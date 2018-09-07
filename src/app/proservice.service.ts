@@ -27,7 +27,13 @@ export class ProserviceService {
 
   getDetail(params)
   {
-    console.log("service hit", this.moviedetailUrl + params.id);
+    console.log('service hit', this.moviedetailUrl + params.id);
     return this.http.get(this.moviedetailUrl + params.id);
+  }
+
+  postContact(contact) {
+    console.log('sucess postcontact called', contact);
+    return this.http.post('http://127.0.0.1:8000/api/contact/', contact);
+    
   }
 }
