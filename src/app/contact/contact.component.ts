@@ -15,6 +15,7 @@ export class ContactComponent implements OnInit {
   web = '';
   msg = '';
   contact = {};
+  post_sucess = false;
 
   constructor(private sendcontact: ProserviceService) { }
 
@@ -43,6 +44,8 @@ export class ContactComponent implements OnInit {
     
     this.sendcontact.postContact(this.contact).subscribe(data => {
       console.log('sucess', data);
+      this.post_sucess = true;
+
     });
 
   }

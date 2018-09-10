@@ -15,12 +15,9 @@ export class MovieDetailComponent implements OnInit {
   constructor(private route: ActivatedRoute, private detail: ProserviceService) { }
 
   ngOnInit() {
-    this.route.params.subscribe(params => {
-      console.log(params);
-    
-      // this.detail.getDetail(params);
-      // console.log(this.detail.getDetail(params));
-      this.detail.getDetail(params).subscribe(data => {
+      this.route.params.subscribe(params => {
+        console.log(params);
+        this.detail.getDetail(params).subscribe(data => {
         console.log('sucess', data);
         this.movie = data;
       });

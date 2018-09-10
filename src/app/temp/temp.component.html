@@ -10,6 +10,7 @@
   <nav><a routerLink="/movie/{{item.id}}">link</a></nav>
   <a href="/movie/{{item.id}}">this is a link</a>
   <img src="{{item.image}}" alt="failed">
+  <p>{{ item.short_desc | slice:0:50 }}</p>
   <hr>
 </div>
 <br>

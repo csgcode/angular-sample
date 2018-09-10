@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { ProserviceService } from './../proservice.service';
+
 
 @Component({
   selector: 'app-home',
@@ -7,9 +9,16 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HomeComponent implements OnInit {
 
-  constructor() { }
+  movies;
+
+  constructor(private http: ProserviceService) { }
 
   ngOnInit() {
+    this.http.getHomeData().subscribe(data => {
+      console.log('sucess inside list', data);
+      this.movies = data;
+     
+    });
   }
-
+  
 }

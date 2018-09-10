@@ -7,70 +7,49 @@
       </div>
 
       <div class="filters">
-        <select name="#" id="#" placeholder="Choose Category">
-          <option value="#">Action</option>
-          <option value="#">Drama</option>
-          <option value="#">Fantasy</option>
-          <option value="#">Horror</option>
-          <option value="#">Adventure</option>
+        <select (change)="getFilter($event)" placeholder="Choose Category">
+          <option value="1">Action</option>
+          <option value="5">Adventure</option>
+          <option value="4">Animation</option>
+          <option value="2">Comdey</option>
+          <option value="3">Drama</option>        
+          <option value="6">Horror</option>
+          <option value="7">Mystery</option>
         </select>
-        <select name="#" id="#">
-          <option value="#">2012</option>
-          <option value="#">2013</option>
-          <option value="#">2014</option>
+        <select (change)="getFilter($event)" name="#" id="#">
+          <option value="2012">2012</option>
+          <option value="2013">2013</option>
+          <option value="2014">2014</option>
+          <option value="2015">2015</option>
+          <option value="2016">2016</option>
+          <option value="2017">2017</option>
+          <option value="2018">2018</option>
         </select>
       </div>
+      <!--
+       --> <!-- .movie-list -->
+
       <div class="movie-list">
-        <div class="movie">
-          <figure class="movie-poster"><img src="assets/dummy/thumb-3.jpg" alt="#"></figure>
-          <div class="movie-title"><a href="single.html">Maleficient</a></div>
-          <p>Sed ut perspiciatis unde omnis iste natus error voluptatem doloremque.</p>
+        
+        <div *ngFor="let movie of movies " class="movie">
+          <figure class="movie-poster"><img src="{{movie.image}}" alt="#"></figure>
+          <div class="movie-title"><a routerLink="/movie/{{movie.id}}">{{ movie.title }}</a></div>
+          <p>{{ movie.short_desc | slice:0:60 }}</p>
         </div>
-        <div class="movie">
-          <figure class="movie-poster"><img src="assets/dummy/thumb-4.jpg" alt="#"></figure>
-          <div class="movie-title"><a href="single.html">The adventure of Tintin</a></div>
-          <p>Sed ut perspiciatis unde omnis iste natus error voluptatem doloremque.</p>
-        </div>
-        <div class="movie">
-          <figure class="movie-poster"><img src="assets/dummy/thumb-5.jpg" alt="#"></figure>
-          <div class="movie-title"><a href="single.html">Hobbit</a></div>
-          <p>Sed ut perspiciatis unde omnis iste natus error voluptatem doloremque.</p>
-        </div>
-        <div class="movie">
-          <figure class="movie-poster"><img src="assets/dummy/thumb-6.jpg" alt="#"></figure>
-          <div class="movie-title"><a href="single.html">Exists</a></div>
-          <p>Sed ut perspiciatis unde omnis iste natus error voluptatem doloremque.</p>
-        </div>
-        <div class="movie">
-          <figure class="movie-poster"><img src="assets/dummy/thumb-1.jpg" alt="#"></figure>
-          <div class="movie-title"><a href="single.html">Drive hard</a></div>
-          <p>Sed ut perspiciatis unde omnis iste natus error voluptatem doloremque.</p>
-        </div>
-        <div class="movie">
-          <figure class="movie-poster"><img src="assets/dummy/thumb-2.jpg" alt="#"></figure>
-          <div class="movie-title"><a href="single.html">Robocop</a></div>
-          <p>Sed ut perspiciatis unde omnis iste natus error voluptatem doloremque.</p>
-        </div>
-        <div class="movie">
-          <figure class="movie-poster"><img src="assets/dummy/thumb-7.jpg" alt="#"></figure>
-          <div class="movie-title"><a href="single.html">Life of Pi</a></div>
-          <p>Sed ut perspiciatis unde omnis iste natus error voluptatem doloremque.</p>
-        </div>
-        <div class="movie">
-          <figure class="movie-poster"><img src="assets/dummy/thumb-8.jpg" alt="#"></figure>
-          <div class="movie-title"><a href="single.html">The Colony</a></div>
-          <p>Sed ut perspiciatis unde omnis iste natus error voluptatem doloremque.</p>
-        </div>
-      </div> <!-- .movie-list -->
+
+      </div>
 
       <div class="pagination">
-        <a href="#" class="page-number prev"><i class="fa fa-angle-left"></i></a>
-        <span class="page-number current">1</span>
+        <a  (click)="getPrev()" class="page-number prev"><i class="fa fa-angle-left">Prev</i></a>
+        
+        <span class="page-number current">{{count}}</span>
+         <!--
         <a href="#" class="page-number">2</a>
         <a href="#" class="page-number">3</a>
         <a href="#" class="page-number">4</a>
         <a href="#" class="page-number">5</a>
-        <a href="#" class="page-number next"><i class="fa fa-angle-right"></i></a>
+          -->
+        <a  (click)="getNext()" class="page-number next">Next<i class="fa fa-angle-right"></i></a>
       </div>
     </div>
   </div> <!-- .container -->

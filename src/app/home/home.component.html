@@ -5,6 +5,7 @@
         <div class="col-md-9">
           <div class="slider">
             <ul class="slides">
+              <li *ngFor="let movie of movies"><a routerLink="/movie/{{movie.id}}"><img src="{{movie.image}}" alt="Slide poster {{movie.title}}" style="max-width: 825px;max-height: 491px;"></a></li>
               <li><a href="#"><img src="assets/dummy/thumb-3.jpg" alt="Slide 1" style="max-width: 825px;max-height: 491px;"></a></li>
               <li><a href="#"><img src="assets/dummy/slide-2.jpg" alt="Slide 2" style="max-width: 825px;max-height: 491px;"></a></li>
               <li><a href="#"><img src="assets/dummy/slide-3.jpg" alt="Slide 3" style="max-width: 825px;max-height: 491px;"></a></li>
