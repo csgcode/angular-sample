@@ -57,4 +57,11 @@ export class ProserviceService {
     return this.http.get(this.homeurl);
     
   }
+
+  getHomeMonthData(params){
+    console.log('home hit');
+    return this.http.get(this.homeurl + '?m=' + params);
+    
+  }
+
 }
