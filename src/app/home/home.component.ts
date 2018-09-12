@@ -18,20 +18,29 @@ export class HomeComponent implements OnInit {
   first;
   sec;
   third;
+  movie_obj = [];
   month = [
             "January", "February","March","April","May",
             "June","July","August","September","October",
             "November","December"
           ];
+        
 
 
   constructor(private http: ProserviceService) { }
 
   ngOnInit() {
     this.http.getHomeData().subscribe(data => {
-      console.log('sucess inside list', data);
+      console.log('sucess inside list gethomedata', data);
       this.movies = data;
+      console.log('console 0', data[0])
+      
+      for(var i=0; i<6; i++)
+      {
+        this.movie_obj[i] = data[i];
+      }
     });
+    
     this._month = this._date.getMonth();
     console.log(this._month+1);
     console.log("date", this._date);
@@ -50,7 +59,7 @@ export class HomeComponent implements OnInit {
 
     this.http.getHomeMonthData(this._month+3).subscribe(data =>{
       this.thirdmonth = data;
-      this.sec = this.month[this._month + 2]
+      this.third = this.month[this._month + 2]
       console.log(this.thirdmonth);
     });
 
