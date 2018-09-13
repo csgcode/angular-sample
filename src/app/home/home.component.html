@@ -6,7 +6,6 @@
           <div class="slider">
             <ul class="slides">
               <!-- <li *ngFor="let movie of movies"><a href="/movie/{{movie.id}}"><img src="{{movie.image}}" alt="Slide 1" style="max-width: 825px;max-height: 491px;"></a></li> -->
-               
               <li><a routerLink="/movie/{{movie_obj[0].id}}"><img src="{{movie_obj[0].image}}" alt="Slide 1" style="max-width: 825px;max-height: 491px;"></a></li>
               <li><a routerLink="/movie/{{movie_obj[1].id}}"><img src="{{movie_obj[1].image}}" alt="Slide 2" style="max-width: 825px;max-height: 491px;"></a></li>
               <li><a routerLink="/movie/{{movie_obj[2].id}}"><img src="{{movie_obj[2].image}}" alt="Slide 3" style="max-width: 825px;max-height: 491px;"></a></li>
@@ -56,7 +55,6 @@
         <div class="col-md-4">
           <h2 class="section-title">{{first}} premiere</h2>
           <p>Lorem ipsum dolor sit amet consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore.
-            {{movie_obj[0].title}}{{month[0]}} {{movie_obj[5].title}}
           </p>
           <ul class="movie-schedule">
             <div *ngIf="firstmonth">
