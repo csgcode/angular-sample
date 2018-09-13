@@ -24,7 +24,6 @@ export class HomeComponent implements OnInit {
             "June","July","August","September","October",
             "November","December"
           ];
-        
 
 
   constructor(private http: ProserviceService) { }
@@ -33,7 +32,7 @@ export class HomeComponent implements OnInit {
     this.http.getHomeData().subscribe(data => {
       console.log('sucess inside list gethomedata', data);
       this.movies = data;
-      console.log('console 0', data[0])
+      console.log('console 0', data[0]);
       
       for(var i=0; i<6; i++)
       {
