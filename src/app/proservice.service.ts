@@ -13,7 +13,8 @@ interface myData {
 
 export class ProserviceService {
 
-  private baseUrl = 'http://127.0.0.1:8000/api/';
+  // private baseUrl = 'http://127.0.0.1:8000/api/';
+  private baseUrl = 'http://csgokul.pythonanywhere.com/api/';
   private movielistUrl = this.baseUrl + 'movie-list/';
   private moviedetailUrl = this.baseUrl + 'movie/';
   private filterUrl = this.baseUrl + 'movie-list/?f=';
