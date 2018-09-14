@@ -2,28 +2,24 @@
   <div class="container">
     <div class="page">
       <div class="breadcrumbs">
-        <a href="index.html">Home</a>
+        <a href="">Home</a>
         <span>Movie Review</span>
       </div>
 
       <div class="filters">
         <select (change)="getFilter($event)" placeholder="Choose Category">
           <option value="1">Action</option>
-          <option value="5">Adventure</option>
-          <option value="4">Animation</option>
-          <option value="2">Comdey</option>
-          <option value="3">Drama</option>        
+          <option value="2">Adventure</option>
+          <option value="3">Animation</option>
+          <option value="4">Comdey</option>
+          <option value="5">Drama</option>        
           <option value="6">Horror</option>
           <option value="7">Mystery</option>
         </select>
         <select (change)="getFilter($event)" name="#" id="#">
-          <option value="2012">2012</option>
-          <option value="2013">2013</option>
-          <option value="2014">2014</option>
-          <option value="2015">2015</option>
-          <option value="2016">2016</option>
           <option value="2017">2017</option>
           <option value="2018">2018</option>
+          <option value="2018">2019</option>
         </select>
       </div>
       <!--

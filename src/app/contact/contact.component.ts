@@ -45,7 +45,10 @@ export class ContactComponent implements OnInit {
     this.sendcontact.postContact(this.contact).subscribe(data => {
       console.log('sucess', data);
       this.post_sucess = true;
-
+      this.name = '';
+      this.email = '';
+      this.web = '';
+      this.email = '';
     });
 
   }
