@@ -16,12 +16,12 @@ export class ContactComponent implements OnInit {
   msg = '';
   contact = {};
   post_sucess = false;
+  _error = false;
 
   constructor(private sendcontact: ProserviceService) { }
 
   ngOnInit() {
   }
- 
 
   getda(event: any){
     console.log(event.target.value);
@@ -35,21 +35,31 @@ export class ContactComponent implements OnInit {
     console.log(this.email);  
     console.log(this.msg); 
     
+    if (this.name === '' || this.email === '' || this.msg === '') {
+      console.log("empty");
+      this._error = true;
+    }
+    else
+    {
+      this._error = false;
+    }
+
     this.contact = {
       name: this.name,
       email: this.email,
       website: this.web,
       message: this.email
     }
-    
-    this.sendcontact.postContact(this.contact).subscribe(data => {
-      console.log('sucess', data);
-      this.post_sucess = true;
-      this.name = '';
-      this.email = '';
-      this.web = '';
-      this.email = '';
-    });
-
+    if (!this._error) {
+      this.sendcontact.postContact(this.contact).subscribe(data => {
+        console.log('sucess', data);
+        this.post_sucess = true;
+        this.name = '';
+        this.email = '';
+        this.web = '';
+        this.email = '';
+        this.msg = ''; 
+      });
+    }
   }
 }
