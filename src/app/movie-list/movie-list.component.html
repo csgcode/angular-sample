@@ -19,7 +19,7 @@
         <select (change)="getFilter($event)" name="#" id="#">
           <option value="2017">2017</option>
           <option value="2018">2018</option>
-          <option value="2018">2019</option>
+          <option value="2019">2019</option>
         </select>
       </div>
       <!--
@@ -40,10 +40,7 @@
         
         <span class="page-number current">{{count}}</span>
          <!--
-        <a href="#" class="page-number">2</a>
-        <a href="#" class="page-number">3</a>
-        <a href="#" class="page-number">4</a>
-        <a href="#" class="page-number">5</a>
+        
           -->
         <a  (click)="getNext()" class="page-number next">Next<i class="fa fa-angle-right"></i></a>
       </div>

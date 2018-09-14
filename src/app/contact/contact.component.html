@@ -2,7 +2,7 @@
   <div class="container">
     <div class="page">
       <div class="breadcrumbs">
-        <a [routerLink]="['/home']" routerLinkActive="router-link-active"  >Home</a>
+        <a href = "" routerLinkActive="router-link-active"  >Home</a>
         <span>Contact</span>
       </div>
 
@@ -25,12 +25,16 @@
               </li>
             </ul>
             <form (ngSubmit)="submitdata()">
-            <div class="contact-form">
+            <div class="contact-form"><span *ngIf="_error" style="color:red"> Please fill all required feilds</span>
               <input [value]="name" type="text" class="name" placeholder="name..." required (blur)="name = $event.target.value; " >
+              
               <input [value]="email" type="text" class="email" placeholder="email..." required (blur)="email = $event.target.value;" >
+              
               <input [value]="web" type="text" class="website" placeholder="website..." (blur)="web = $event.target.value;" >
               <textarea [value]="msg" class="message" placeholder="message..." (blur)="msg = $event.target.value;" ></textarea>
-              <button type="submit"  value="Send Message">Send Message</button><span *ngIf="post_sucess"> Sucessfully Submited</span>
+              <button type="submit"  value="Send Message">Send Message</button>
+              <span *ngIf="post_sucess"> Sucessfully Submited</span>
+              <span class = "error" *ngIf="_error">* Name, Email and Message are required</span>
             </div>
           </form>
 

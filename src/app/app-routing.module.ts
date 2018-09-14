@@ -10,6 +10,7 @@ const routes: Routes = [
   { path: '', component: HomeComponent },
   { path: 'home', component: HomeComponent },
   { path: 'movie/:id', component: MovieDetailComponent },
+  { path: 'movie/?=:filter', component: MovieDetailComponent },
   { path: 'movie-list', component: MovieListComponent },
   { path: 'contact', component: ContactComponent },
   { path: 'temp', component: TempComponent },
