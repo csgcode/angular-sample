@@ -12,6 +12,7 @@ import { ContactComponent } from './contact/contact.component';
 import { MovieListComponent } from './movie-list/movie-list.component';
 import { TempComponent } from './temp/temp.component';
 import { ProserviceService } from './proservice.service';
+import { FifilterComponent } from './fifilter/fifilter.component';
 
 @NgModule({
   declarations: [
@@ -20,7 +21,8 @@ import { ProserviceService } from './proservice.service';
     MovieDetailComponent,
     ContactComponent,
     MovieListComponent,
-    TempComponent
+    TempComponent,
+    FifilterComponent
   ],
   imports: [
     BrowserModule,

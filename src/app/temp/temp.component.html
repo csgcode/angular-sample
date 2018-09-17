@@ -1,28 +1,10 @@
 <p>
-  temp works!
+  TEMP WORKS
+  {{currentpage}} : currentpage <br>
+  {{nextpage}} :next page <br>
+  
+
+
+
+
 </p>
-<div *ngFor="let item of records">
-  {{item.id}}
-  <br>
-  {{item.name}}
-  <br>
-  {{item.title}}
-  <nav><a routerLink="/movie/{{item.id}}">link</a></nav>
-  <a href="/movie/{{item.id}}">this is a link</a>
-  <img src="{{item.image}}" alt="failed">
-  <p>{{ item.short_desc | slice:0:50 }}</p>
-  <hr>
-</div>
-<br>
-<input [value]="name" type="text" (blur)="name = $event.target.value; ">
-<input [value]="email" type="text" (blur)="email = $event.target.value;">
-<input [value]="web" type="text" (blur)="web = $event.target.value;">
-
-<input [value]="msg" type="text" (blur)="msg = $event.target.value; testfun()">
-
-
-asdddddddd
-ddddddddddd
-
-br
-

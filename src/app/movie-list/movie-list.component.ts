@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ProserviceService } from './../proservice.service';
+import { Router } from '@angular/router';
 
 
 @Component({
@@ -15,8 +16,9 @@ export class MovieListComponent implements OnInit {
   prev ;
   a;
   selected ;
+  page;
 
-  constructor(private http: ProserviceService) { }
+  constructor(private http: ProserviceService, private router: Router) { }
 
   ngOnInit() {
     this.dataFetch();
@@ -33,6 +35,20 @@ export class MovieListComponent implements OnInit {
       console.log(this.count, this.next, this.prev);
      
     });
+  }
+
+  onSelectPrev(){
+    this.page = this.count - 1;
+    console.log(this.page, 'page');
+    this.router.navigate(['/movie-list', this.page, {}]);
+
+  }
+
+  onSelectNext(){
+    this.page = this.count + 1;
+    console.log(this.page, 'page');
+    this.router.navigate(['/movie-list', this.page , {}]);
+
   }
 
   getNext(){
@@ -80,7 +96,19 @@ getFilter(event: any)
     });
    }
   
+}
 
+onSelectFilter(event: any)
+{
+  this.selected = event.target.value;
+  console.log('select fun', this.selected);
+
+  if(this.selected)
+  {
+    this.page = this.count;
+    this.router.navigate(['/movie-list', this.page, { filter: this.selected }]);
+
+  }
 }
 
 
