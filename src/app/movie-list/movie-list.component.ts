@@ -37,10 +37,17 @@ export class MovieListComponent implements OnInit {
     });
   }
 
-  onSelect(){
+  onSelectPrev(){
+    this.page = this.count - 1;
+    console.log(this.page, 'page');
+    this.router.navigate(['/movie-list', this.page, {}]);
+
+  }
+
+  onSelectNext(){
     this.page = this.count + 1;
     console.log(this.page, 'page');
-    this.router.navigate(['/movie-list', this.page]);
+    this.router.navigate(['/movie-list', this.page , {}]);
 
   }
 
@@ -89,7 +96,19 @@ getFilter(event: any)
     });
    }
   
+}
 
+onSelectFilter(event: any)
+{
+  this.selected = event.target.value;
+  console.log('select fun', this.selected);
+
+  if(this.selected)
+  {
+    this.page = this.count;
+    this.router.navigate(['/movie-list', this.page, { filter: this.selected }]);
+
+  }
 }
 
 

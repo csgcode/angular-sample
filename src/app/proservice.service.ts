@@ -71,4 +71,10 @@ export class ProserviceService {
     return this.http.get(this.pageUrl + params);
   }
 
+  getFilterPageData(page , filter)
+  {
+    console.log('filterpagehit',page,filter);
+    return this.http.get(this.filterUrl + filter + '&page=' + page);
+  }
+
 }

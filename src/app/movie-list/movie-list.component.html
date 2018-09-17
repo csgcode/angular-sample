@@ -7,7 +7,7 @@
       </div>
 
       <div class="filters">
-        <select (change)="getFilter($event)" placeholder="Choose Category">
+        <select (change)="onSelectFilter($event)" placeholder="Choose Category">
           <option value="1">Action</option>
           <option value="2">Adventure</option>
           <option value="3">Animation</option>
@@ -16,7 +16,7 @@
           <option value="6">Horror</option>
           <option value="7">Mystery</option>
         </select>
-        <select (change)="getFilter($event)" name="#" id="#">
+        <select (change)="onSelectFilter($event)" name="#" id="#">
           <option value="2017">2017</option>
           <option value="2018">2018</option>
           <option value="2019">2019</option>
@@ -36,13 +36,13 @@
       </div>
 
       <div class="pagination">
-        <a  (click)="getPrev()" class="page-number prev"><i class="fa fa-angle-left">Prev</i></a>
+        <a  (click)="onSelectPrev()" class="page-number prev"><i class="fa fa-angle-left">Prev</i></a>
         
         <span class="page-number current">{{count}}</span>
          <!--
         
           -->
-        <a  (click)="onSelect()" class="page-number next">Next<i class="fa fa-angle-right"></i></a>
+        <a  (click)="onSelectNext()" class="page-number next">Next<i class="fa fa-angle-right"></i></a>
       </div>
     </div>
   </div> <!-- .container -->
