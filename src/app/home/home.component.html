@@ -1,6 +1,9 @@
 <main class="main-content">
   <div class="container">
-    <div class="page">
+    <!-- spinner-->
+    
+    <!-- -->
+    <div  class="page">
       <div class="row">
         <div class="col-md-9">
           <div class="slider">
@@ -13,7 +16,7 @@
             </ul>
           </div>
         </div>
-        <div class="col-md-3">
+        <div *ngIf="!showSpinner" class="col-md-3">
           <div class="row">
             <div class="col-sm-6 col-md-12">
               <div class="latest-movie">
@@ -28,7 +31,16 @@
           </div>
         </div>
       </div> <!-- .row -->
-      <div class="row">
+
+      <div *ngIf="showSpinner" class="spinner2">
+          <div class="rect1"></div>
+          <div class="rect2"></div>
+          <div class="rect3"></div>
+          <div class="rect4"></div>
+          <div class="rect5"></div>
+      </div>
+
+      <div *ngIf="!showSpinner" class="row">
         <div class="col-sm-6 col-md-3">
           <div class="latest-movie">
             <a routerLink="/movie/{{movie_obj[2].id}}"><img src="{{movie_obj[2].image}}" alt="Movie 3"></a>
@@ -51,7 +63,15 @@
         </div>
       </div> <!-- .row -->
 
-      <div class="row">
+      <div *ngIf="showSpinner2" class="spinner2">
+          <div class="rect1"></div>
+          <div class="rect2"></div>
+          <div class="rect3"></div>
+          <div class="rect4"></div>
+          <div class="rect5"></div>
+      </div>
+      
+      <div *ngIf="!showSpinner2" class="row">
         <div class="col-md-4">
           <h2 class="section-title">{{first}} premiere</h2>
           <p>Lorem ipsum dolor sit amet consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore.

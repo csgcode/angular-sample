@@ -17,6 +17,7 @@ export class MovieListComponent implements OnInit {
   a;
   selected ;
   page;
+  showSpinner:boolean = true;
 
   constructor(private http: ProserviceService, private router: Router) { }
 
@@ -33,6 +34,7 @@ export class MovieListComponent implements OnInit {
       this.next = data['next'];
       this.prev = data['previous'];
       console.log(this.count, this.next, this.prev);
+      this.showSpinner = false;
      
     });
   }

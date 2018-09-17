@@ -11,6 +11,7 @@ import { ProserviceService } from './../proservice.service';
 export class MovieDetailComponent implements OnInit {
 
   movie;
+  showSpinner:boolean = true;
 
   constructor(private route: ActivatedRoute, private detail: ProserviceService) { }
 
@@ -20,6 +21,7 @@ export class MovieDetailComponent implements OnInit {
         this.detail.getDetail(params).subscribe(data => {
         console.log('sucess', data);
         this.movie = data;
+        this.showSpinner = false;
       });
     });
   }

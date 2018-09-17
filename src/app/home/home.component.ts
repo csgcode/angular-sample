@@ -24,6 +24,8 @@ export class HomeComponent implements OnInit {
             "June","July","August","September","October",
             "November","December"
           ];
+  showSpinner:boolean = true;
+  showSpinner2:boolean = true;
 
 
   constructor(private http: ProserviceService) { }
@@ -32,12 +34,16 @@ export class HomeComponent implements OnInit {
     this.http.getHomeData().subscribe(data => {
       console.log('sucess inside list gethomedata', data);
       this.movies = data;
+      
+      this.showSpinner = false;
+      
       console.log('console 0', data[0]);
       
       for(var i=0; i<6; i++)
       {
         this.movie_obj[i] = data[i];
       }
+      
     });
     
     this._month = this._date.getMonth();
@@ -60,8 +66,10 @@ export class HomeComponent implements OnInit {
       this.thirdmonth = data;
       this.third = this.month[this._month + 2]
       console.log(this.thirdmonth);
+      this.showSpinner2 = false;
     });
 
+    
   }
   
 
