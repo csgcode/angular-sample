@@ -8,7 +8,7 @@ import { ProserviceService } from './../proservice.service';
   styleUrls: ['./home.component.css']
 })
 export class HomeComponent implements OnInit {
-
+  homecomp:boolean;
   movies;
   _date = new Date()
   _month ;
@@ -28,7 +28,9 @@ export class HomeComponent implements OnInit {
   showSpinner2:boolean = true;
 
 
-  constructor(private http: ProserviceService) { }
+  constructor(private http: ProserviceService) {
+    this.homecomp = true;
+   }
 
   ngOnInit() {
     this.http.getHomeData().subscribe(data => {

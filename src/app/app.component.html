@@ -14,10 +14,10 @@
         <button type="button" class="menu-toggle"><i class="fa fa-bars"></i></button>
         <ul class="menu">
           <nav>
-          <li class="menu-item " [routerLinkActive]="['current-menu-item']" ><a href="" >Home</a></li>
+          <li class="menu-item " [routerLinkActive]="['current-menu-item']" [className]="homecomp == true ? 'current-menu-item menu-item' : 'menu-item'"  ><a (click)="home()" href="" >Home</a></li>
           <!--<li class="menu-item " [routerLinkActive]="['current-menu-item']" ><a [routerLink]="['/temp']" >temp</a></li> -->
-          <li class="menu-item " [routerLinkActive]="['current-menu-item']" ><a [routerLink]="['/movie-list']" >Movie Reviews</a></li>
-          <li class="menu-item " [routerLinkActive]="['current-menu-item']" ><a [routerLink]="['/contact']" >Contact</a></li>  
+          <li class="menu-item " [routerLinkActive]="['current-menu-item']" ><a (click)="nohome()" [routerLink]="['/movie-list']" >Movie Reviews</a></li>
+          <li class="menu-item " [routerLinkActive]="['current-menu-item']" ><a (click)="nohome()"[routerLink]="['/contact']" >Contact</a></li>  
           </nav>
         </ul> <!-- .menu -->
 
