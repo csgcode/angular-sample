@@ -25,7 +25,17 @@
       <!--
        --> <!-- .movie-list -->
 
-      <div class="movie-list">
+       <div *ngIf="showSpinner" class="spinner2">
+          <div class="rect1"></div>
+          <div class="rect2"></div>
+          <div class="rect3"></div>
+          <div class="rect4"></div>
+          <div class="rect5"></div>
+        </div>
+
+
+
+      <div *ngIf="!showSpinner" class="movie-list">
         
         <div *ngFor="let movie of movies " class="movie">
           <figure class="movie-poster"><img src="{{ movie.image }}" alt="#"></figure>
