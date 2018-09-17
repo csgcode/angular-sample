@@ -1,55 +1,64 @@
 import { Component, OnInit } from '@angular/core';
 import { ProserviceService } from './../proservice.service';
+import { Router, ActivatedRoute, ParamMap } from '@angular/router';
 
-// interface myData {
-//   obj: Object;
-// }
+
 
 @Component({
   selector: 'app-temp',
   templateUrl: './temp.component.html',
   styleUrls: ['./temp.component.css']
 })
-export class TempComponent implements OnInit {
-//   records =   [{ id: 11, name: 'Mr. Nice' },
-//   { id: 12, name: 'Narco' },
-//   { id: 13, name: 'Bombasto' },
-//   { id: 14, name: 'Celeritas' },
-//   { id: 15, name: 'Magneta' },
-//   { id: 16, name: 'RubberMan' },
-//   { id: 17, name: 'Dynama' },
-//   { id: 18, name: 'Dr IQ' },
-//   { id: 19, name: 'Magma' },
-//   { id: 20, name: 'Tornado' }
-// ];
   
-  records:any;
+export class TempComponent implements OnInit {
 
-  name = 'Goukl';
-  email = 'Goukl';
-  web = 'Goukl';
-  msg = 'Goukl';
+  movies;
+  nextpage: number;
+  currentpage: number;
+  next;
+  prev;
 
-  constructor(private trydata: ProserviceService) { 
+
+  constructor(private route: ActivatedRoute, private detail: ProserviceService, private router: Router) { 
 
   }
 
   ngOnInit() {
-    this.trydata.getData().subscribe(data => {
-      console.log('sucess', data);
-      this.records = data;
+    
+    this.route.paramMap.subscribe((params: ParamMap) =>{
+      let page = parseInt(params.get('f'));
+      this.currentpage = page;
+      
+      this.detail.getPageData(this.currentpage).subscribe(data => {
+        console.log('sucess', data);
+        this.movies = data['results'];
+        this.next = data['next'];
+        this.prev = data['previous'];
+      });
+
     });
   }
 
-  testfun() {
-    console.log('function called');  
-    console.log(this.name);
-    console.log(this.web); 
-    console.log(this.email);  
-    console.log(this.msg); 
 
-    
-     
+  onNext(){
+    if(this.next)
+    {
+    this.nextpage = this.currentpage + 1;
+    console.log(this.nextpage, 'nexttpage');
+    this.router.navigate(['/movie-list', this.nextpage]);
+    }
   }
+
+  onPrev(){
+    if(this.prev)
+    {
+    this.nextpage = this.currentpage - 1;
+    console.log(this.nextpage, 'nexttpage');
+    this.router.navigate(['/movie-list', this.nextpage]);
+    }
+  }
+
+
+ 
 
 }

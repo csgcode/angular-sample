@@ -36,13 +36,13 @@
       </div>
 
       <div class="pagination">
-        <a  (click)="getPrev()" class="page-number prev"><i class="fa fa-angle-left">Prev</i></a>
+        <a  (click)="onPrev()" class="page-number prev"><i class="fa fa-angle-left">Prev</i></a>
         
-        <span class="page-number current">{{count}}</span>
+        <span class="page-number current">{{currentpage}}</span>
          <!--
         
           -->
-        <a  (click)="onSelect()" class="page-number next">Next<i class="fa fa-angle-right"></i></a>
+        <a  (click)="onNext()" class="page-number next">Next<i class="fa fa-angle-right"></i></a>
       </div>
     </div>
   </div> <!-- .container -->

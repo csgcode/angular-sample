@@ -20,6 +20,7 @@ export class ProserviceService {
   private filterUrl = this.baseUrl + 'movie-list/?f=';
   private contactUrl = this.baseUrl + 'contact/';
   private homeurl = this.baseUrl + 'home/';
+  private pageUrl = this.baseUrl + 'movie-list/?page=';
 
   constructor(private http: HttpClient) {
 
@@ -63,6 +64,11 @@ export class ProserviceService {
     console.log('home hit');
     return this.http.get(this.homeurl + '?m=' + params);
     
+  }
+
+  getPageData(params){
+    console.log ('page hit',params);
+    return this.http.get(this.pageUrl + params);
   }
 
 }
