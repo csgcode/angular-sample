@@ -29,9 +29,9 @@
               <input [value]="email" type="text" class="email" placeholder="email..." required (blur)="email = $event.target.value;" >
               <input [value]="web" type="text" class="website" placeholder="website..." (blur)="web = $event.target.value;" >
               <textarea [value]="msg" class="message" placeholder="message..." (blur)="msg = $event.target.value;" ></textarea>
+              <span class = "error" *ngIf="_error">* Name, Email and Message are required</span><br  *ngIf="_error">
               <button type="submit"  value="Send Message">Send Message</button>
-              <span *ngIf="post_sucess"> Sucessfully Submited</span>
-              <span class = "error" *ngIf="_error">* Name, Email and Message are required</span>
+              <span *ngIf="post_sucess"> Sucessfully Submited</span> 
             </div>
           </form>
           </div>

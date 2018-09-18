@@ -15,6 +15,7 @@ export class MovieListComponent implements OnInit {
   prev ;
   a;
   selected ;
+  selectedyear ;
   page;
   showSpinner:boolean = true;
 
@@ -65,6 +66,18 @@ onSelectFilter(event: any)
   {
     this.page = this.count;
     this.router.navigate(['/movie-list', this.page, { filter: this.selected }]);
+  }
+}
+
+onSelectYear(event: any)
+{
+  this.selectedyear = event.target.value;
+  
+  if(this.selectedyear)
+  {
+    this.page = this.count;
+    console.log(this.selectedyear, 'in year');
+    this.router.navigate(['/movie-list', this.page, { year: this.selectedyear }]);
   }
 }
 }
