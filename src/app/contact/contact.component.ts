@@ -2,7 +2,6 @@ import { Component, OnInit } from '@angular/core';
 
 import { ProserviceService } from './../proservice.service';
 
-
 @Component({
   selector: 'app-contact',
   templateUrl: './contact.component.html',
@@ -19,28 +18,16 @@ export class ContactComponent implements OnInit {
   _error = false;
 
   constructor(private sendcontact: ProserviceService) { }
-
   ngOnInit() {
   }
 
-  getda(event: any){
-    console.log(event.target.value);
+  getda(event: any) {
   }
-
   submitdata() {
-    console.log('\n\n\n\n\non submit called\n\n\n');
-    console.log('function called');  
-    console.log(this.name);
-    console.log(this.web); 
-    console.log(this.email);  
-    console.log(this.msg); 
-    
     if (this.name === '' || this.email === '' || this.msg === '') {
-      console.log("empty");
       this._error = true;
     }
-    else
-    {
+    else {
       this._error = false;
     }
 
@@ -52,13 +39,12 @@ export class ContactComponent implements OnInit {
     }
     if (!this._error) {
       this.sendcontact.postContact(this.contact).subscribe(data => {
-        console.log('sucess', data);
         this.post_sucess = true;
         this.name = '';
         this.email = '';
         this.web = '';
         this.email = '';
-        this.msg = ''; 
+        this.msg = '';
       });
     }
   }

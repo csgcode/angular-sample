@@ -5,14 +5,13 @@
         <a href="">Home</a>
         <span>Movie Review</span>
       </div>
-
       <div class="filters">
         <select (change)="onSelectFilter($event)" placeholder="Choose Category">
           <option value="1">Action</option>
           <option value="2">Adventure</option>
           <option value="3">Animation</option>
           <option value="4">Comdey</option>
-          <option value="5">Drama</option>        
+          <option value="5">Drama</option>
           <option value="6">Horror</option>
           <option value="7">Mystery</option>
         </select>
@@ -22,27 +21,25 @@
           <option value="2019">2019</option>
         </select>
       </div>
-      <!--
-       --> <!-- .movie-list -->
-
-      <div class="movie-list">
-        
+      <!-- .movie-list -->
+      <div *ngIf="showSpinner" class="spinner2">
+        <div class="rect1"></div>
+        <div class="rect2"></div>
+        <div class="rect3"></div>
+        <div class="rect4"></div>
+        <div class="rect5"></div>
+      </div>
+      <div *ngIf="!showSpinner" class="movie-list">
         <div *ngFor="let movie of movies " class="movie">
           <figure class="movie-poster"><img src="{{ movie.image }}" alt="#"></figure>
           <div class="movie-title"><a routerLink="/movie/{{ movie.id }}">{{ movie.title }}</a></div>
           <p>{{ movie.short_desc | slice:0:60 }}</p>
         </div>
-
       </div>
-
       <div class="pagination">
-        <a  (click)="onPrev()" class="page-number prev"><i class="fa fa-angle-left">Prev</i></a>
-        
+        <a (click)="onPrev()" class="page-number prev"><i class="fa fa-angle-left">Prev</i></a>
         <span class="page-number current">{{currentpage}}</span>
-         <!--
-        
-          -->
-        <a  (click)="onNext()" class="page-number next">Next<i class="fa fa-angle-right"></i></a>
+        <a (click)="onNext()" class="page-number next">Next<i class="fa fa-angle-right"></i></a>
       </div>
     </div>
   </div> <!-- .container -->

@@ -9,7 +9,7 @@ import { Router, ActivatedRoute, ParamMap } from '@angular/router';
   templateUrl: './temp.component.html',
   styleUrls: ['./temp.component.css']
 })
-  
+
 export class TempComponent implements OnInit {
 
   movies;
@@ -19,16 +19,16 @@ export class TempComponent implements OnInit {
   prev;
 
 
-  constructor(private route: ActivatedRoute, private detail: ProserviceService, private router: Router) { 
+  constructor(private route: ActivatedRoute, private detail: ProserviceService, private router: Router) {
 
   }
 
   ngOnInit() {
-    
-    this.route.paramMap.subscribe((params: ParamMap) =>{
+
+    this.route.paramMap.subscribe((params: ParamMap) => {
       let page = parseInt(params.get('f'));
       this.currentpage = page;
-      
+
       this.detail.getPageData(this.currentpage).subscribe(data => {
         console.log('sucess', data);
         this.movies = data['results'];
@@ -40,25 +40,23 @@ export class TempComponent implements OnInit {
   }
 
 
-  onNext(){
-    if(this.next)
-    {
-    this.nextpage = this.currentpage + 1;
-    console.log(this.nextpage, 'nexttpage');
-    this.router.navigate(['/movie-list', this.nextpage]);
+  onNext() {
+    if (this.next) {
+      this.nextpage = this.currentpage + 1;
+      console.log(this.nextpage, 'nexttpage');
+      this.router.navigate(['/movie-list', this.nextpage]);
     }
   }
 
-  onPrev(){
-    if(this.prev)
-    {
-    this.nextpage = this.currentpage - 1;
-    console.log(this.nextpage, 'nexttpage');
-    this.router.navigate(['/movie-list', this.nextpage]);
+  onPrev() {
+    if (this.prev) {
+      this.nextpage = this.currentpage - 1;
+      console.log(this.nextpage, 'nexttpage');
+      this.router.navigate(['/movie-list', this.nextpage]);
     }
   }
 
 
- 
+
 
 }
