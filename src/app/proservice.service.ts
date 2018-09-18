@@ -49,4 +49,13 @@ export class ProserviceService {
   getFilterPageData(page , filter){
     return this.http.get(this.filterUrl + filter + '&page=' + page);
   }
+  getYearFilterData(page, year)
+  {
+    return this.http.get(this.filterUrl + year + '&page=' + page);
+  }
+
+  getFilterMergeData(page, filter, year){
+    return this.http.get(this.filterUrl + filter + '&q=' + year + '&page=' + page);
+  }
+
 }

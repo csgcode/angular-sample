@@ -26,6 +26,7 @@ export class ContactComponent implements OnInit {
   submitdata() {
     if (this.name === '' || this.email === '' || this.msg === '') {
       this._error = true;
+      this.post_sucess = false;
     }
     else {
       this._error = false;

@@ -17,9 +17,7 @@ export class MovieDetailComponent implements OnInit {
 
   ngOnInit() {
       this.route.params.subscribe(params => {
-        console.log(params);
         this.detail.getDetail(params).subscribe(data => {
-        console.log('sucess', data);
         this.movie = data;
         this.showSpinner = false;
       });
