@@ -1,15 +1,10 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 
-interface myData {
-  obj: Object
-}
 
 @Injectable({
   providedIn: 'root'
 })
-
-
 
 export class ProserviceService {
 
@@ -22,59 +17,36 @@ export class ProserviceService {
   private homeurl = this.baseUrl + 'home/';
   private pageUrl = this.baseUrl + 'movie-list/?page=';
 
-  constructor(private http: HttpClient) {
-
-   }
+  constructor(private http: HttpClient) {}
 
   getData() {
     return this.http.get(this.movielistUrl);
   }
-
   getDetail(params)
   {
-    console.log('service hit', this.moviedetailUrl + params.id);
     return this.http.get(this.moviedetailUrl + params.id);
   }
-
   getDataURL(params)
   {
-    console.log('dataurlhit', params);
     return this.http.get(params);
   }
-
   getFilterData(params)
   {
-    console.log('Filterhit', params);
     return this.http.get(this.filterUrl + params);
   }
-
   postContact(contact) {
-    console.log('sucess postcontact called', contact);
     return this.http.post(this.contactUrl, contact);
-    
   }
-
   getHomeData(){
-    console.log('home hit');
     return this.http.get(this.homeurl);
-    
   }
-
   getHomeMonthData(params){
-    console.log('home hit');
     return this.http.get(this.homeurl + '?m=' + params);
-    
   }
-
   getPageData(params){
-    console.log ('page hit',params);
     return this.http.get(this.pageUrl + params);
   }
-
-  getFilterPageData(page , filter)
-  {
-    console.log('filterpagehit',page,filter);
+  getFilterPageData(page , filter){
     return this.http.get(this.filterUrl + filter + '&page=' + page);
   }
-
 }

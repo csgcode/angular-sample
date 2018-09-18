@@ -5,7 +5,6 @@
         <a href = "" routerLinkActive="router-link-active"  >Home</a>
         <span>Contact</span>
       </div>
-
       <div class="content">
         <div class="row">
           <div class="col-md-4">
@@ -27,9 +26,7 @@
             <form (ngSubmit)="submitdata()">
             <div class="contact-form"><span *ngIf="_error" style="color:red"> Please fill all required feilds</span>
               <input [value]="name" type="text" class="name" placeholder="name..." required (blur)="name = $event.target.value; " >
-              
               <input [value]="email" type="text" class="email" placeholder="email..." required (blur)="email = $event.target.value;" >
-              
               <input [value]="web" type="text" class="website" placeholder="website..." (blur)="web = $event.target.value;" >
               <textarea [value]="msg" class="message" placeholder="message..." (blur)="msg = $event.target.value;" ></textarea>
               <button type="submit"  value="Send Message">Send Message</button>
@@ -37,7 +34,6 @@
               <span class = "error" *ngIf="_error">* Name, Email and Message are required</span>
             </div>
           </form>
-
           </div>
           <div class="col-md-7 col-md-offset-1">
             <div class="map"></div>
